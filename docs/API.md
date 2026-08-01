@@ -42,3 +42,7 @@ Copyright © 2026 上海如静知华信息科技有限公司。
 - 创建售后：`ADMIN`、`MANAGER`、`SALES`
 
 生产集成应补充幂等键、签名校验、审计日志、限流及细粒度数据权限。
+
+## 履约承诺
+
+`POST /api/oms/insights/fulfillment-promise`：综合库存、仓内积压、物流延误和订单优先级返回履约决策与行动列表。

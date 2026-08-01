@@ -46,6 +46,17 @@ class OmsApiIntegrationTests {
         mvc.perform(get("/api/oms/dashboard")).andExpect(status().isForbidden());
     }
 
+    @Test
+    void managerCanEvaluateFulfillmentPromise() throws Exception {
+        String token = login("demo", "Demo@2026", "MANAGER");
+        mvc.perform(post("/api/oms/insights/fulfillment-promise").header("Authorization", "Bearer " + token)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{\"orderNo\":\"OMS-RISK-001\",\"stockCoverage\":0.4,\"warehouseBacklog\":120,\"carrierDelayHours\":12,\"promisedHours\":24,\"vipOrder\":true}"))
+            .andExpect(status().isOk()).andExpect(jsonPath("$.data.riskScore").value(59))
+            .andExpect(jsonPath("$.data.decision").value("EXPEDITE"))
+            .andExpect(jsonPath("$.data.remainingBufferHours").value(12));
+    }
+
     private String login(String username, String password, String expectedRole) throws Exception {
         String body = mvc.perform(post("/api/auth/login").contentType(MediaType.APPLICATION_JSON)
                 .content("{\"username\":\"" + username + "\",\"password\":\"" + password + "\"}"))

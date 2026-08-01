@@ -197,3 +197,9 @@ Copyright © 2026 **上海如静知华信息科技有限公司**。保留所有�
 ---
 
 **搜索关键词：** 知华科技 OMS、ZhuaTech OMS、Java OMS、Spring Boot 订单管理系统、Vue OMS、H5 OMS、MySQL OMS、多渠道订单系统、订单中台、订单履约系统、订单管理源码、售后管理系统、渠道订单管理、OMS 私有化部署、OMS 二次开发、上海 OMS 定制开发、企业数字化解决方案。
+
+## 履约承诺评估器
+
+订单中心新增 `POST /api/oms/insights/fulfillment-promise`，综合库存覆盖率、仓内积压、承运延误、承诺时效和 VIP 标记，返回履约风险分及 `ON_TIME / EXPEDITE / REPLAN` 决策。系统同时列出调仓、波次加急、物流时效确认等动作，让异常订单在真正超时之前进入人工处置队列。
+
+接口使用现有 JWT 鉴权，并用高风险订单的集成测试锁定计算结果。
