@@ -203,3 +203,7 @@ Copyright © 2026 **上海如静知华信息科技有限公司**。保留所有�
 订单中心新增 `POST /api/oms/insights/fulfillment-promise`，综合库存覆盖率、仓内积压、承运延误、承诺时效和 VIP 标记，返回履约风险分及 `ON_TIME / EXPEDITE / REPLAN` 决策。系统同时列出调仓、波次加急、物流时效确认等动作，让异常订单在真正超时之前进入人工处置队列。
 
 接口使用现有 JWT 鉴权，并用高风险订单的集成测试锁定计算结果。
+
+## 拆单合包决策
+
+新增 `POST /api/oms/insights/shipment-consolidation`，对比当前运费与合包运费，并结合包裹数、重量、额外处理时间、承诺缓冲和易碎品属性输出 `CONSOLIDATE / REVIEW / KEEP_SPLIT`。接口同时返回预计节省、风险分和仓内执行动作，避免只追求运费节省而牺牲履约时效。
