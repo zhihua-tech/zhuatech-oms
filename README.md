@@ -211,3 +211,7 @@ Copyright © 2026 **上海如静知华信息科技有限公司**。保留所有�
 ## 拆单合包决策
 
 新增 `POST /api/oms/insights/shipment-consolidation`，对比当前运费与合包运费，并结合包裹数、重量、额外处理时间、承诺缓冲和易碎品属性输出 `CONSOLIDATE / REVIEW / KEEP_SPLIT`。接口同时返回预计节省、风险分和仓内执行动作，避免只追求运费节省而牺牲履约时效。
+
+## 逆向退货路由
+
+`POST /api/oms/insights/return-routing` 依据商品成色、签收时长、商品价值、翻新成本、逆向距离和可售库存缺口，在重新上架、翻新、人工质检和拒收复核之间选择路径，同时估算价值回收金额。

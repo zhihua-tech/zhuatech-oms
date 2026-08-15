@@ -46,3 +46,7 @@ Copyright © 2026 上海如静知华信息科技有限公司。
 ## 履约承诺
 
 `POST /api/oms/insights/fulfillment-promise`：综合库存、仓内积压、物流延误和订单优先级返回履约决策与行动列表。
+
+## 逆向退货路由
+
+`POST /api/oms/insights/return-routing`：依据商品状态、退货时效、翻新经济性和库存缺口返回逆向处理路径、目的节点与价值回收金额。
