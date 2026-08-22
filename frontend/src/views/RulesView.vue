@@ -1,4 +1,4 @@
-<!-- Copyright 2026 Shanghai Rujing Zhihua Information Technology Co., Ltd. -->
+<!-- Copyright 2026 Shanghai Rujing Zhihua Information Technology Co., Ltd. · https://www.zhuatech.cn/ -->
 <script setup>
 const rules = [
   { name:'华东区域智能分仓', scene:'订单路由', desc:'上海、江苏、浙江订单优先选择库存充足且距离最近的仓库', count:186, color:'purple' },

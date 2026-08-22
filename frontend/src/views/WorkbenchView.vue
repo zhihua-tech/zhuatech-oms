@@ -1,4 +1,4 @@
-<!-- Copyright 2026 Shanghai Rujing Zhihua Information Technology Co., Ltd. -->
+<!-- Copyright 2026 Shanghai Rujing Zhihua Information Technology Co., Ltd. · https://www.zhuatech.cn/ -->
 <script setup>
 const groups = [
   { title:'订单处理', note:'归集与审单', items:[['订单中心','orders-o','/orders'],['渠道订单','shop-o','/channels'],['订单规则','setting-o','/rules'],['异常订单','warning-o','/orders']] },
