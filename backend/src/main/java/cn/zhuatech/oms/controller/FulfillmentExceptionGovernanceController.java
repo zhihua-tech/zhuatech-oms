@@ -1,0 +1,9 @@
+/* Copyright 2026 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ */
+package cn.zhuatech.oms.controller;
+import cn.zhuatech.oms.common.ApiResponse;import cn.zhuatech.oms.service.FulfillmentExceptionGovernanceService;
+import jakarta.validation.Valid;import org.springframework.web.bind.annotation.*;
+@RestController @RequestMapping("/api/enterprise/oms")
+public class FulfillmentExceptionGovernanceController{
+ private final FulfillmentExceptionGovernanceService service;public FulfillmentExceptionGovernanceController(FulfillmentExceptionGovernanceService service){this.service=service;}
+ @PostMapping("/fulfillment-exception")public ApiResponse<FulfillmentExceptionGovernanceService.Assessment> assess(@Valid @RequestBody FulfillmentExceptionGovernanceService.Request request){return ApiResponse.ok("履约异常恢复评估完成",service.assess(request));}
+}
