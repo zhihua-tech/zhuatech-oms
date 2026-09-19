@@ -5,10 +5,19 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Entity
 @Table(name = "oms_after_sale")
 public class AfterSaleRequest extends BaseEntity {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public enum Type { REFUND_ONLY, RETURN_REFUND, EXCHANGE }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public enum Status { PENDING, APPROVED, REJECTED, PROCESSING, COMPLETED }
 
     @Column(nullable = false, unique = true, length = 40)
@@ -32,8 +41,14 @@ public class AfterSaleRequest extends BaseEntity {
     @Column(length = 80)
     private String handlerName;
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     protected AfterSaleRequest() {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public AfterSaleRequest(String requestNo, String orderNo, String customerName, Type type, String reason,
                             BigDecimal amount, Status status, LocalDateTime requestedAt, String handlerName) {
         this.requestNo = requestNo;
@@ -47,13 +62,40 @@ public class AfterSaleRequest extends BaseEntity {
         this.handlerName = handlerName;
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String getRequestNo() { return requestNo; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String getOrderNo() { return orderNo; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String getCustomerName() { return customerName; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Type getType() { return type; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String getReason() { return reason; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public BigDecimal getAmount() { return amount; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Status getStatus() { return status; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public LocalDateTime getRequestedAt() { return requestedAt; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String getHandlerName() { return handlerName; }
 }

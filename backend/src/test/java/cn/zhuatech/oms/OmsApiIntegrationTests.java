@@ -12,11 +12,17 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @SpringBootTest
 @AutoConfigureMockMvc
 class OmsApiIntegrationTests {
     @Autowired MockMvc mvc;
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void managerCanReadDashboardAndOrderChain() throws Exception {
         String token = login("demo", "Demo@2026", "MANAGER");
@@ -31,6 +37,9 @@ class OmsApiIntegrationTests {
             .andExpect(status().isOk()).andExpect(jsonPath("$.data").isArray());
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void managerCanCreateManualOrder() throws Exception {
         String token = login("demo", "Demo@2026", "MANAGER");
@@ -41,11 +50,17 @@ class OmsApiIntegrationTests {
             .andExpect(jsonPath("$.data.status").value("PAID"));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void unauthenticatedOmsRequestIsRejected() throws Exception {
         mvc.perform(get("/api/oms/dashboard")).andExpect(status().isForbidden());
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void managerCanEvaluateFulfillmentPromise() throws Exception {
         String token = login("demo", "Demo@2026", "MANAGER");
@@ -57,6 +72,9 @@ class OmsApiIntegrationTests {
             .andExpect(jsonPath("$.data.remainingBufferHours").value(12));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     private String login(String username, String password, String expectedRole) throws Exception {
         String body = mvc.perform(post("/api/auth/login").contentType(MediaType.APPLICATION_JSON)
                 .content("{\"username\":\"" + username + "\",\"password\":\"" + password + "\"}"))

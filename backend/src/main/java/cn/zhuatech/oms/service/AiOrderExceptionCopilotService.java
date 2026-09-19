@@ -12,11 +12,20 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class AiOrderExceptionCopilotService {
     private final OpenAiCompatibleGateway gateway;
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public AiOrderExceptionCopilotService(OpenAiCompatibleGateway gateway) { this.gateway = gateway; }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Result evaluate(Request request) {
         int probability = 5;
         List<String> reasons = new ArrayList<>();
@@ -42,11 +51,17 @@ public class AiOrderExceptionCopilotService {
             enhanced.isPresent() ? "EXTERNAL_MODEL" : "LOCAL_RULES", metadata.provider(), metadata.model());
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(@NotBlank String orderNumber, @Min(1) int promisedHours, @Min(0) int elapsedHours,
                           @DecimalMin("0") @DecimalMax("100") BigDecimal inventoryReadyRate,
                           @NotNull Boolean paymentVerified, @NotNull Boolean addressValid,
                           @DecimalMin("0") @DecimalMax("100") BigDecimal carrierCapacityRate,
                           @Min(1) int customerPriority, @NotNull Boolean splitShipmentAllowed) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Result(int exceptionProbability, String status, List<String> reasons, List<String> actions,
                          String copilotAdvice, String aiMode, String provider, String model) {}
 }

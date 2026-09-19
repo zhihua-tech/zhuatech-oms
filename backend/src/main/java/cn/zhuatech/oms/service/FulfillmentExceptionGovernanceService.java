@@ -2,8 +2,14 @@
 package cn.zhuatech.oms.service;
 import jakarta.validation.constraints.*; import org.springframework.stereotype.Service;
 import java.math.BigDecimal; import java.util.*;
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class FulfillmentExceptionGovernanceService{
+ /**
+  * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+  */
  public Assessment assess(Request r){
   List<String> blockers=new ArrayList<>();List<String> actions=new ArrayList<>();
   if(!r.inventoryPromiseRecalculated())blockers.add("异常后未重新计算库存承诺");
@@ -22,11 +28,23 @@ public class FulfillmentExceptionGovernanceService{
   String route=risk==RiskLevel.HIGH?"履约主管→风控/财务→客服负责人":"履约主管";
   return new Assessment(r.exceptionNo(),decision,risk,route,List.copyOf(blockers),List.copyOf(actions));
  }
+ /**
+  * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+  */
  public record Request(@NotBlank String exceptionNo,@NotBlank String ownerId,@NotBlank String approverId,
   @NotNull @DecimalMin("0.00") BigDecimal refundAmount,boolean inventoryPromiseRecalculated,boolean paymentRiskCleared,
   boolean carrierCapacityConfirmed,boolean routeChanged,boolean addressComplianceRechecked,boolean splitShipment,
   boolean splitAuthorized,boolean refundApproved,boolean idempotencyKeyRegistered,boolean customerNotified,
   boolean auditEvidenceAttached,boolean slaTimerReset){}
+ /**
+  * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+  */
  public record Assessment(String exceptionNo,Decision decision,RiskLevel riskLevel,String approvalRoute,List<String> blockers,List<String> actions){}
- public enum Decision{RECOVER,REVIEW,BLOCKED}public enum RiskLevel{NORMAL,HIGH}
+ /**
+  * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+  */
+ public enum Decision{RECOVER,REVIEW,BLOCKED}/**
+                                              * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+                                              */
+public enum RiskLevel{NORMAL,HIGH}
 }

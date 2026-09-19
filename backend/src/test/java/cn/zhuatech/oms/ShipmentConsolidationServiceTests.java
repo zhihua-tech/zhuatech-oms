@@ -9,9 +9,15 @@ import java.math.BigDecimal;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 class ShipmentConsolidationServiceTests {
     private final ShipmentConsolidationService service = new ShipmentConsolidationService();
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void recommendsConsolidationWhenSavingsAreMaterialAndPromiseIsSafe() {
         var result = service.evaluate(new ShipmentConsolidationService.Request(
@@ -24,6 +30,9 @@ class ShipmentConsolidationServiceTests {
         assertTrue(result.actions().getFirst().contains("合并发运"));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void keepsSplitWhenConsolidationWouldBreakPromise() {
         var result = service.evaluate(new ShipmentConsolidationService.Request(

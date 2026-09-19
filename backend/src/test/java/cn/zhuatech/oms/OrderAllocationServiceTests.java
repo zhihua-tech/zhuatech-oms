@@ -8,9 +8,15 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 class OrderAllocationServiceTests {
     private final OrderAllocationService service = new OrderAllocationService();
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test void selectsBestFullStockNode() {
         var result = service.allocate(new OrderAllocationService.Request("SO-1001", 8, 2, List.of(
             new OrderAllocationService.NodeCandidate("SH-A", 20, 8, 35, 70),
@@ -19,6 +25,9 @@ class OrderAllocationServiceTests {
         assertThat(result.selectedNodes()).containsExactly("SH-A");
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test void splitsWhenNoNodeCanFulfillAlone() {
         var result = service.allocate(new OrderAllocationService.Request("SO-1002", 10, 2, List.of(
             new OrderAllocationService.NodeCandidate("SH-A", 6, 8, 35, 80),

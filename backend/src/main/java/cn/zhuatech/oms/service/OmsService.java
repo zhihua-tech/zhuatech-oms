@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class OmsService {
     private final CustomerOrderRepository orders;
@@ -16,6 +19,9 @@ public class OmsService {
     private final OrderEventRepository events;
     private final CurrentUserService currentUser;
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public OmsService(CustomerOrderRepository orders, AfterSaleRepository afterSales,
                       OrderEventRepository events, CurrentUserService currentUser) {
         this.orders = orders;
@@ -24,6 +30,9 @@ public class OmsService {
         this.currentUser = currentUser;
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Transactional
     public CustomerOrder createOrder(OrderCreateRequest request) {
         String orderNo = "OMS" + System.currentTimeMillis();
@@ -36,6 +45,9 @@ public class OmsService {
         return order;
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Transactional
     public CustomerOrder changeOrderStatus(Long id, String rawStatus) {
         CustomerOrder order = orders.findById(id).orElseThrow(() -> new BusinessException("订单不存在"));
@@ -50,6 +62,9 @@ public class OmsService {
         }
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Transactional
     public AfterSaleRequest createAfterSale(AfterSaleCreateRequest request) {
         try {

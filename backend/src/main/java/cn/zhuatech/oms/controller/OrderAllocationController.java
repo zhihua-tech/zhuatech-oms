@@ -6,12 +6,21 @@ import cn.zhuatech.oms.service.OrderAllocationService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @RestController
 @RequestMapping("/api/oms/insights")
 public class OrderAllocationController {
     private final OrderAllocationService service;
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public OrderAllocationController(OrderAllocationService service) { this.service = service; }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @PostMapping("/order-allocation")
     public ApiResponse<OrderAllocationService.Result> allocate(@Valid @RequestBody OrderAllocationService.Request request) {
         return ApiResponse.ok(service.allocate(request));

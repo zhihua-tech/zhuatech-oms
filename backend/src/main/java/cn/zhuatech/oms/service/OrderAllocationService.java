@@ -12,8 +12,14 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class OrderAllocationService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Result allocate(Request request) {
         List<NodeScore> ranked = request.nodes().stream()
             .map(node -> new NodeScore(node.nodeCode(), node.availableStock(),
@@ -43,13 +49,25 @@ public class OrderAllocationService {
             0, List.of("创建缺货预占并通知客服确认延期或替代商品"));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(@NotBlank String orderNo, @Min(1) int quantity,
                           @Min(1) @Max(5) int maxSplitNodes,
                           @NotEmpty List<@Valid NodeCandidate> nodes) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record NodeCandidate(@NotBlank String nodeCode, @Min(0) int availableStock,
                                 @Min(0) int leadHours, @Min(0) int distanceKm,
                                 @Min(0) @Max(100) int capacityRate) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     private record NodeScore(String nodeCode, int availableStock, double costScore) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Result(String orderNo, String decision, List<String> selectedNodes,
                          int allocatedQuantity, int backorderQuantity, double allocationScore,
                          List<String> actions) {}

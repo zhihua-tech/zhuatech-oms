@@ -6,12 +6,21 @@ import cn.zhuatech.oms.service.OrderCancellationRefundGovernanceService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @RestController
 @RequestMapping("/api/enterprise/oms")
 public class OrderCancellationRefundGovernanceController {
     private final OrderCancellationRefundGovernanceService service;
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public OrderCancellationRefundGovernanceController(OrderCancellationRefundGovernanceService service) { this.service = service; }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @PostMapping("/order-cancellation-refund")
     public ApiResponse<OrderCancellationRefundGovernanceService.Assessment> assess(
             @Valid @RequestBody OrderCancellationRefundGovernanceService.Request request) {

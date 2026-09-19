@@ -11,8 +11,14 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class FulfillmentPromiseService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Result evaluate(Request request) {
         int score = Math.min(100, (int) Math.round((1 - request.stockCoverage()) * 40
             + Math.min(25, request.warehouseBacklog() / 10.0)
@@ -28,10 +34,16 @@ public class FulfillmentPromiseService {
             Math.max(0, request.promisedHours() - request.carrierDelayHours()), actions);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(@NotBlank String orderNo,
                           @DecimalMin("0") @DecimalMax("1") double stockCoverage,
                           @Min(0) int warehouseBacklog, @Min(0) int carrierDelayHours,
                           @Positive int promisedHours, boolean vipOrder) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Result(String orderNo, int riskScore, String decision,
                          int remainingBufferHours, List<String> actions) {}
 }

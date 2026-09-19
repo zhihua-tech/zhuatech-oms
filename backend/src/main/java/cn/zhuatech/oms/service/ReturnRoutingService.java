@@ -11,8 +11,14 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class ReturnRoutingService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Result route(Request request) {
         String route;
         if (request.daysSinceDelivery() > 30 && request.conditionScore() < 40) route = "REJECT_REVIEW";
@@ -38,12 +44,18 @@ public class ReturnRoutingService {
         return new Result(request.returnNo(), route, destination, estimatedRecovery, actions);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(@NotBlank String returnNo, @Min(0) @Max(100) int conditionScore,
                           @Min(0) int daysSinceDelivery,
                           @DecimalMin("0") BigDecimal itemValue,
                           @DecimalMin("0") BigDecimal refurbishmentCost,
                           @Min(0) int destinationDistanceKm,
                           @Min(0) int sellableStockGap) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Result(String returnNo, String route, String destination,
                          BigDecimal estimatedRecovery, List<String> actions) {}
 }

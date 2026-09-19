@@ -11,8 +11,14 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class ShipmentConsolidationService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Result evaluate(Request request) {
         BigDecimal savings = request.currentFreight().subtract(request.consolidatedFreight())
             .max(BigDecimal.ZERO).setScale(2, RoundingMode.HALF_UP);
@@ -36,6 +42,9 @@ public class ShipmentConsolidationService {
         return new Result(request.orderNo(), savings, savingRate, riskScore, decision, actions);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(@NotBlank String orderNo, @Min(1) int packageCount,
                           @DecimalMin("0.01") BigDecimal totalWeightKg,
                           @DecimalMin("0") BigDecimal currentFreight,
@@ -43,6 +52,9 @@ public class ShipmentConsolidationService {
                           @Min(0) int extraHandlingHours, @Min(0) int promisedBufferHours,
                           boolean fragile) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Result(String orderNo, BigDecimal estimatedSavings, BigDecimal savingRate,
                          int riskScore, String decision, List<String> actions) {}
 }

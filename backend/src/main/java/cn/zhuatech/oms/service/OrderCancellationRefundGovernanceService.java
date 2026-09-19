@@ -8,8 +8,14 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class OrderCancellationRefundGovernanceService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Assessment assess(Request request) {
         List<String> blockers = new ArrayList<>();
         List<String> actions = new ArrayList<>();
@@ -34,6 +40,9 @@ public class OrderCancellationRefundGovernanceService {
                 List.copyOf(blockers), List.copyOf(actions));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(@NotBlank String requestId, @NotBlank String orderNo,
                           @DecimalMin("0.01") BigDecimal refundAmount,
                           boolean cancellationPolicyMatched, boolean shipmentIntercepted,
@@ -44,7 +53,13 @@ public class OrderCancellationRefundGovernanceService {
                           boolean businessOwnerApproved, boolean makerCheckerSeparated, boolean auditReady,
                           boolean customerNoticeReady, boolean channelSyncReady,
                           boolean returnMonitoringReady) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Assessment(String requestId, String orderNo, BigDecimal refundAmount, Decision decision,
                              List<String> blockers, List<String> actions) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public enum Decision { REFUND, REVIEW, BLOCKED }
 }

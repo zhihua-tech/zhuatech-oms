@@ -13,6 +13,9 @@ import java.math.BigDecimal;
 import java.time.*;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @RestController
 @RequestMapping("/api/oms")
 public class OmsController {
@@ -23,6 +26,9 @@ public class OmsController {
     private final OrderEventRepository events;
     private final OmsService service;
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public OmsController(CustomerOrderRepository orders, ShipmentRepository shipments,
                          AfterSaleRepository afterSales, SalesChannelRepository channels,
                          OrderEventRepository events, OmsService service) {
@@ -34,6 +40,9 @@ public class OmsController {
         this.service = service;
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @GetMapping("/dashboard")
     public ApiResponse<DashboardView> dashboard() {
         LocalDateTime start = LocalDate.now().atStartOfDay();
@@ -55,17 +64,26 @@ public class OmsController {
             channels.countBySyncStatusNot(SalesChannel.SyncStatus.NORMAL), shippingExceptions, rate));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @GetMapping("/orders")
     public ApiResponse<List<OrderView>> orders() {
         return ApiResponse.ok(orders.findAllByOrderByOrderedAtDesc().stream().map(OrderView::from).toList());
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @PostMapping("/orders")
     @PreAuthorize("hasAnyRole('ADMIN','MANAGER','SALES')")
     public ApiResponse<OrderView> createOrder(@Valid @RequestBody OrderCreateRequest request) {
         return ApiResponse.ok("订单创建成功", OrderView.from(service.createOrder(request)));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @PatchMapping("/orders/{id}/status")
     @PreAuthorize("hasAnyRole('ADMIN','MANAGER','SALES','WAREHOUSE')")
     public ApiResponse<OrderView> changeStatus(@PathVariable Long id,
@@ -73,27 +91,42 @@ public class OmsController {
         return ApiResponse.ok(OrderView.from(service.changeOrderStatus(id, request.status())));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @GetMapping("/shipments")
     public ApiResponse<List<ShipmentView>> shipments() {
         return ApiResponse.ok(shipments.findAllByOrderByIdDesc().stream().map(ShipmentView::from).toList());
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @GetMapping("/after-sales")
     public ApiResponse<List<AfterSaleView>> afterSales() {
         return ApiResponse.ok(afterSales.findAllByOrderByRequestedAtDesc().stream().map(AfterSaleView::from).toList());
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @PostMapping("/after-sales")
     @PreAuthorize("hasAnyRole('ADMIN','MANAGER','SALES')")
     public ApiResponse<AfterSaleView> createAfterSale(@Valid @RequestBody AfterSaleCreateRequest request) {
         return ApiResponse.ok("售后申请创建成功", AfterSaleView.from(service.createAfterSale(request)));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @GetMapping("/channels")
     public ApiResponse<List<ChannelView>> channels() {
         return ApiResponse.ok(channels.findAllByOrderByTodayAmountDesc().stream().map(ChannelView::from).toList());
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @GetMapping("/events")
     public ApiResponse<List<EventView>> events() {
         return ApiResponse.ok(events.findTop20ByOrderByOccurredAtDesc().stream().map(EventView::from).toList());

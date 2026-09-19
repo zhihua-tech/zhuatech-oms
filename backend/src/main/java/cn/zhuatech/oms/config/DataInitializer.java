@@ -10,6 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Component
 public class DataInitializer implements CommandLineRunner {
     private final UserRepository users;
@@ -20,6 +23,9 @@ public class DataInitializer implements CommandLineRunner {
     private final OrderEventRepository events;
     private final PasswordEncoder encoder;
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public DataInitializer(UserRepository users, CustomerOrderRepository orders, ShipmentRepository shipments,
                            AfterSaleRepository afterSales, SalesChannelRepository channels,
                            OrderEventRepository events, PasswordEncoder encoder) {
@@ -32,6 +38,9 @@ public class DataInitializer implements CommandLineRunner {
         this.encoder = encoder;
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Override
     @Transactional
     public void run(String... args) {
@@ -96,6 +105,9 @@ public class DataInitializer implements CommandLineRunner {
             "顺丰速运已揽收，预计明日送达", "物流回传", now.minusHours(2)));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     private CustomerOrder order(String no, String externalNo, String channel, String customer, String phone,
                                 String items, int itemCount, String amount, CustomerOrder.Status status,
                                 String warehouse, LocalDateTime orderedAt, LocalDateTime promisedShipAt) {
@@ -103,5 +115,8 @@ public class DataInitializer implements CommandLineRunner {
             money(amount), status, warehouse, orderedAt, promisedShipAt);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     private BigDecimal money(String value) { return new BigDecimal(value).setScale(2); }
 }
