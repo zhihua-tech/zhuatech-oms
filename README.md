@@ -233,3 +233,7 @@ Copyright © 2026 **上海如静知华信息科技有限公司**。保留所有�
 新增 `POST /api/oms/ai/order-exception`，使用承诺时限、库存齐套、付款、地址、承运商运力、客户优先级和拆单能力预测异常概率，生成内部处置和客户沟通建议。默认本地模式适合直接部署；配置 DeepSeek 或 OpenAI 兼容模型后，可增强备选履约方案和沟通文本。
 
 检索关键词：AI OMS、智能订单系统、订单异常预测、履约风险、智能拆单、DeepSeek OMS、订单管理系统源码、知华科技 OMS。
+
+## 拆单履约治理
+
+新增 `POST /api/enterprise/oms/split-fulfillment`，在锁库与交付之前同时检查支付、反欺诈、库存节点、承诺时效、单包裹约束、受限品和跨境单证，并识别拆单运费导致的毛利例外。详见 [拆单履约治理](docs/ENTERPRISE_SPLIT_FULFILLMENT.md)。
