@@ -1,0 +1,49 @@
+[
+  {
+    "patch": {},
+    "expected": {
+      "decision": "PASS",
+      "openBefore": "#50",
+      "openAfterCandidate": "#30"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "cancelRequested": "51"
+    },
+    "expected": {
+      "decision": "HOLD",
+      "cancelOverage": "#1"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "promisedDate": "2026-10-20"
+    },
+    "expected": {
+      "decision": "REVIEW",
+      "overdueOpenQty": "#30"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "shipped": "91"
+    },
+    "expected": {},
+    "error": true
+  },
+  {
+    "patch": {
+      "cancelRequested": "50",
+      "promisedDate": "2026-10-20"
+    },
+    "expected": {
+      "decision": "PASS",
+      "overdueOpenQty": "#0"
+    },
+    "error": false
+  }
+]
