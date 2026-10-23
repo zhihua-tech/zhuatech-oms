@@ -1,0 +1,87 @@
+{
+  "slug": "oms",
+  "title": "订单履约数量与退款预检",
+  "fields": [
+    {
+      "key": "order_no",
+      "label": "订单号",
+      "type": "ID",
+      "length": 200
+    },
+    {
+      "key": "ordered",
+      "label": "订购数量",
+      "type": "INTEGER",
+      "length": 200,
+      "scale": 0
+    },
+    {
+      "key": "shipped",
+      "label": "发货数量",
+      "type": "INTEGER",
+      "length": 200,
+      "scale": 0
+    },
+    {
+      "key": "cancelled",
+      "label": "取消数量",
+      "type": "INTEGER",
+      "length": 200,
+      "scale": 0
+    },
+    {
+      "key": "paid",
+      "label": "实付金额",
+      "type": "DECIMAL",
+      "length": 200,
+      "scale": 2
+    },
+    {
+      "key": "refunded",
+      "label": "退款金额",
+      "type": "DECIMAL",
+      "length": 200,
+      "scale": 2
+    }
+  ],
+  "unique": [
+    [
+      "order_no"
+    ]
+  ],
+  "rules": [
+    {
+      "op": "SUM_LE",
+      "args": [
+        "shipped",
+        "cancelled",
+        "ordered"
+      ],
+      "code": "FULFILLMENT_EXCEEDS_ORDER",
+      "message": "已发货加已取消不能超过订购数量",
+      "bad": {
+        "shipped": "9"
+      }
+    },
+    {
+      "op": "LE",
+      "args": [
+        "refunded",
+        "paid"
+      ],
+      "code": "REFUND_EXCEEDS_PAID",
+      "message": "退款不能超过实付",
+      "bad": {
+        "refunded": "1000.01"
+      }
+    }
+  ],
+  "sampleCsv": "order_no,ordered,shipped,cancelled,paid,refunded\nSO-001,10,6,2,1000,100\n",
+  "limits": {
+    "rows": 500,
+    "bytes": 262144,
+    "columns": 32,
+    "cellCharacters": 4000
+  },
+  "scope": "Read-only batch validation; no persistence, reference-master lookup or full production certification."
+}
